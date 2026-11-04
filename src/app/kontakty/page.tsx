@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const channels = [
   { href: contacts.telegram, icon: Send, title: "Telegram", text: "Бот поддержки Горбилета. Самый быстрый способ решить вопрос по заказу." },
-  { href: contacts.vk, icon: MessageCircle, title: "ВКонтакте", text: "Сообщения сообщества Горбилета в Москве." },
+  { href: contacts.vk, icon: MessageCircle, title: "ВКонтакте", text: "Сообщения сообщества «Горбилет Турист»." },
   { href: contacts.max, icon: LifeBuoy, title: "MAX", text: "Бот поддержки в мессенджере MAX." },
   { href: contacts.tickets, icon: Undo2, title: "Возврат и повторное получение", text: "Сервис tickets.gorbilet.ru, чтобы вернуть билет или получить его ещё раз." },
 ];

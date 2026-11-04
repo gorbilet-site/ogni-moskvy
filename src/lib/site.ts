@@ -19,7 +19,7 @@ export const site = {
 export const contacts = {
   email: "info@gorbilet.com",
   telegram: "https://t.me/Gorbilet_podderzka_bot",
-  vk: "https://vk.me/gorbilet_moscow",
+  vk: "https://vk.ru/gorbilet_travel",
   max: "https://max.ru/id7813296237_bot",
   tickets: "https://tickets.gorbilet.ru",
 } as const;
