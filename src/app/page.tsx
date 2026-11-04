@@ -15,12 +15,12 @@ export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Новогодняя Москва со скидками",
+    name: "Новогодняя Москва со скидками",
     itemListElement: offers.map((o, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: o.title,
-      url: withUtm(o.url, o.slug),
+      url: withUtm(o.url, o.campaign),
     })),
   };
   return (

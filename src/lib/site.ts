@@ -1,18 +1,18 @@
 export const site = {
   name: "Огни Москвы",
   brand: "Горбилет",
-  tagline: "Чёрная пятница для яркого Нового года",
+  tagline: "Чёрная пятница для яркого Нового года",
   description:
-    "Новогодняя Москва со скидками. Экскурсии, смотровые площадки, ёлки для детей, спектакли для взрослых и готовый маршрут на три дня от Горбилета.",
+    "Новогодняя Москва со скидками. Экскурсии, смотровые площадки, ёлки для детей, спектакли для взрослых и готовый маршрут на три дня от Горбилета.",
   // Замените на боевой домен сателлита перед публикацией
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ogni-moskvy.gorbilet.ru",
   gorbiletMoscow: "https://gorbilet.ru/msk/?utm_source=vk&utm_medium=rassilka_tr&utm_campaign=other_msk&utm_content=msk",
   // Чёрная пятница 2026
   blackFriday: "2026-11-27",
   utm: {
-    utm_source: "ogni_moskvy",
-    utm_medium: "satellite",
-    utm_campaign: "black_friday_ny_moscow",
+    utm_source: "vk",
+    utm_medium: "rassilka_tr",
+    utm_campaign: "other_msk",
   },
 } as const;
 
@@ -36,7 +36,7 @@ const fullNav = [
   { href: "/#marshrut", label: "Маршрут" },
   { href: "/afisha", label: "Все билеты" },
   { href: "/gid", label: "Гид" },
-  { href: "/o-proekte", label: "О проекте" },
+  { href: "/o-proekte", label: "О проекте" },
   { href: "/kontakty", label: "Контакты" },
 ];
 
@@ -58,11 +58,18 @@ export const links = {
   category: (key: string, anchor: string) => (SINGLE ? `#${anchor}` : `/afisha?kategoriya=${key}`),
 };
 
-/** Ссылка на Горбилет с UTM-метками сателлита */
-export function withUtm(url: string, content?: string) {
+export type Campaign = "spektakl_msk" | "avtexcursion_msk" | "mesta_msk";
+
+/** Последний сегмент адреса Горбилета, а не сокращённый slug локальной страницы. */
+export function withUtm(url: string, campaign?: Campaign) {
   const u = new URL(url);
-  u.search = "";
+  // Сохраняем рабочие параметры страницы, заменяем только атрибуцию рассылки.
+  for (const key of [...u.searchParams.keys()]) {
+    if (key.startsWith("utm_")) u.searchParams.delete(key);
+  }
   Object.entries(site.utm).forEach(([k, v]) => u.searchParams.set(k, v));
+  if (campaign) u.searchParams.set("utm_campaign", campaign === "mesta_msk" ? "moscow_newyear_mesta_msk" : campaign);
+  const content = u.pathname.split("/").filter(Boolean).at(-1);
   if (content) u.searchParams.set("utm_content", content);
   return u.toString();
 }

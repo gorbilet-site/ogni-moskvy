@@ -5,7 +5,7 @@ import { useState, type FormEvent } from "react";
 import { contacts } from "@/lib/site";
 import { cn } from "@/components/ui/primitives";
 
-const topics = ["Вопрос по билету", "Партнёрство", "Для прессы", "Идея для подборки"];
+const topics = ["Вопрос по билету", "Партнёрство", "Для прессы", "Идея для подборки"];
 
 /** Собирает письмо и открывает почтовую программу. Ничего не отправляет на сервер */
 export function MailComposer() {
@@ -17,7 +17,7 @@ export function MailComposer() {
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (text.trim().length < 5) {
-      setError("Напишите пару слов о вопросе, чтобы мы могли помочь");
+      setError("Напишите пару слов о вопросе, чтобы мы могли помочь");
       return;
     }
     setError(null);
@@ -51,7 +51,7 @@ export function MailComposer() {
       </fieldset>
       <div>
         <label htmlFor="mc-name" className="text-sm text-mute">
-          Как к вам обращаться
+          Как к вам обращаться
         </label>
         <input id="mc-name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className={cn(field, "mt-2")} placeholder="Имя" />
       </div>
@@ -67,7 +67,7 @@ export function MailComposer() {
           aria-invalid={Boolean(error)}
           aria-describedby={error ? "mc-error" : "mc-hint"}
           className={cn(field, "mt-2 resize-y")}
-          placeholder="Например, номер заказа и что случилось"
+          placeholder="Например, номер заказа и что случилось"
         />
         {error ? (
           <p id="mc-error" className="mt-2 text-sm text-blue-deep">
@@ -75,7 +75,7 @@ export function MailComposer() {
           </p>
         ) : (
           <p id="mc-hint" className="mt-2 text-sm text-ink/45">
-            Письмо откроется в вашей почтовой программе, адрес {contacts.email}
+            Письмо откроется в вашей почтовой программе, адрес {contacts.email}
           </p>
         )}
       </div>

@@ -67,16 +67,16 @@ export function Checklist() {
         depth={70}
         bulbScale={2.1}
         tone="light"
-        className="w-full"
+        className="h-12 w-full sm:h-auto"
         label={`Гирлянда: горит ${count} из ${checklist.length}`}
       />
       <div
-        className="mt-2 flex items-center justify-between gap-4"
+        className="mt-2 flex items-center justify-between gap-2 sm:gap-4"
         aria-live="polite"
       >
         <p className="text-[0.95rem] font-medium text-ink/70">
           <span className="display tabular-nums text-blue-deep">{count}</span>{" "}
-          из {checklist.length}{" "}
+          из&nbsp;{checklist.length}{" "}
           {plural(checklist.length, ["огонька", "огоньков", "огоньков"])}{" "}
           {count === 1 ? "горит" : "горят"}
         </p>
@@ -106,20 +106,19 @@ export function Checklist() {
   return (
     <section
       id="chek-list"
-      className="relative bg-white py-24 sm:py-32"
+      className="relative bg-white py-16 sm:py-32"
       aria-labelledby="checklist-title"
     >
-      <div className="shell grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="shell grid gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
             <RevealTitle
               id="checklist-title"
-              lines={["Что обязательно", "сделать в новогодней", "Москве"]}
+              lines={["Что обязательно", "сделать в новогодней", "Москве"]}
               className="display text-[clamp(1.45rem,2.9vw,2.6rem)] text-ink"
             />
             <p className="mt-6 max-w-md text-lg leading-[1.45] text-ink/70">
-              Отмечайте, что уже успели. Каждый пункт зажигает свою лампочку, а
-              прогресс сохранится в этом браузере.
+              Отмечайте, что уже успели. Каждый пункт зажигает свою лампочку, а прогресс сохранится в этом браузере.
             </p>
 
             <div className="mt-8 hidden lg:block">{bar}</div>
@@ -134,7 +133,7 @@ export function Checklist() {
                   className="mt-8 flex items-end gap-5"
                 >
                   <Mascot pose="wave" className="w-28 shrink-0 sm:w-32" />
-                  <p className="display pb-4 text-xl text-blue-deep sm:text-2xl">Вся гирлянда горит. С наступающим!</p>
+                  <p className="display pb-4 text-xl text-blue-deep sm:text-2xl">Вся гирлянда горит. С наступающим!</p>
                 </motion.div>
               ) : (
                 <motion.div key="wait" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mt-10 hidden lg:block">
@@ -146,7 +145,7 @@ export function Checklist() {
         </div>
 
         <div className="lg:col-span-7">
-          <div className="sticky top-[5.25rem] z-20 -mx-5 mb-4 bg-white/90 px-5 pb-2 pt-1 backdrop-blur-md lg:hidden">
+          <div className="sticky top-[4.5rem] z-20 -mx-5 mb-4 bg-white/95 px-5 pb-2 pt-1 backdrop-blur-md sm:top-[5.25rem] lg:hidden">
             {bar}
           </div>
           <ul className="grid gap-2">
@@ -156,7 +155,7 @@ export function Checklist() {
                 <li key={item.id}>
                   <label
                     className={cn(
-                      "group relative flex cursor-pointer gap-5 rounded-2xl p-5 transition-colors duration-500 sm:p-6",
+                      "group relative flex cursor-pointer gap-3 rounded-2xl p-3 transition-colors duration-500 sm:gap-5 sm:p-6",
                       on ? "bg-blush/60" : "hover:bg-paper",
                     )}
                   >

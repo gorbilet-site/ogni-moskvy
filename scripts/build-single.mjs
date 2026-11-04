@@ -8,7 +8,7 @@
  *
  * Запуск: npm run build:single
  */
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, extname, join } from "node:path";
 import { createRequire } from "node:module";
@@ -25,7 +25,7 @@ const env = { ...process.env, STATIC_EXPORT: "1", NEXT_PUBLIC_SINGLE: "1" };
 
 // 1. Статическая сборка Next, из неё берём CSS со шрифтами и класс <html> с переменными шрифтов
 console.log("· next build");
-execSync("npx next build", { cwd: ROOT, env, stdio: "inherit" });
+execFileSync(process.execPath, [join(ROOT, "node_modules/next/dist/bin/next"), "build", ...(process.platform === "win32" ? ["--webpack"] : [])], { cwd: ROOT, env, stdio: "inherit" });
 
 const MIME = { ".woff2": "font/woff2", ".webp": "image/webp", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png" };
 const dataUri = (abs) => `data:${MIME[extname(abs)] ?? "application/octet-stream"};base64,${readFileSync(abs).toString("base64")}`;
@@ -53,6 +53,13 @@ writeFileSync(
   )};\nexport const mascotSrc = (pose: string) => M[pose];\n`,
 );
 
+// Фото предложений также встроены: файл полностью работает без интернета.
+const photos = readdirSync(join(ROOT, "public/offers")).filter((f) => f.endsWith(".webp"));
+const photoModule = join(TMP, "offerPhotoSrc.ts");
+writeFileSync(photoModule, `const P: Record<string, string> = ${JSON.stringify(
+  Object.fromEntries(photos.map((f) => [f.replace(".webp", ""), dataUri(join(ROOT, "public/offers", f))])),
+)};\nexport const offerPhotoSrc = (slug: string) => P[slug];\n`);
+
 const shared = {
   bundle: true,
   jsx: "automatic",
@@ -71,6 +78,7 @@ const shared = {
       name: "mascot",
       setup(b) {
         b.onResolve({ filter: /mascotSrc$/ }, () => ({ path: mascotModule }));
+        b.onResolve({ filter: /offerPhotoSrc$/ }, () => ({ path: photoModule }));
       },
     },
   ],

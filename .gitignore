@@ -42,3 +42,5 @@ next-env.d.ts
 
 ogni-moskvy.html
 .single/
+.work/
+.pnpm-store/

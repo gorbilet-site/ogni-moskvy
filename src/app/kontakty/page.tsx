@@ -7,21 +7,21 @@ import { contacts } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Контакты",
-  description: "Поддержка Горбилета в Telegram, ВКонтакте и MAX, почта для партнёров и прессы, возврат и повторное получение билетов.",
+  description: "Поддержка Горбилета в Telegram, ВКонтакте и MAX, почта для партнёров и прессы, возврат и повторное получение билетов.",
   alternates: { canonical: "/kontakty" },
 };
 
 const channels = [
-  { href: contacts.telegram, icon: Send, title: "Telegram", text: "Бот поддержки Горбилета. Самый быстрый способ решить вопрос по заказу." },
-  { href: contacts.vk, icon: MessageCircle, title: "ВКонтакте", text: "Сообщения сообщества Горбилета в Москве." },
-  { href: contacts.max, icon: LifeBuoy, title: "MAX", text: "Бот поддержки в мессенджере MAX." },
-  { href: contacts.tickets, icon: Undo2, title: "Возврат и повторное получение", text: "Сервис tickets.gorbilet.ru, чтобы вернуть билет или получить его ещё раз." },
+  { href: contacts.telegram, icon: Send, title: "Telegram", text: "Бот поддержки Горбилета. Самый быстрый способ решить вопрос по заказу." },
+  { href: contacts.vk, icon: MessageCircle, title: "ВКонтакте", text: "Сообщения сообщества Горбилета в Москве." },
+  { href: contacts.max, icon: LifeBuoy, title: "MAX", text: "Бот поддержки в мессенджере MAX." },
+  { href: contacts.tickets, icon: Undo2, title: "Возврат и повторное получение", text: "Сервис tickets.gorbilet.ru, чтобы вернуть билет или получить его ещё раз." },
 ];
 
 export default function ContactsPage() {
   return (
     <>
-      <PageHero mascot="wave" title={["Мы на связи"]} lead="Вопросы по заказу быстрее всего решает поддержка в мессенджерах. Для партнёрства и прессы пишите на почту." />
+      <PageHero mascot="wave" title={["Мы на связи"]} lead="Вопросы по заказу быстрее всего решает поддержка в мессенджерах. Для партнёрства и прессы пишите на почту." />
       <section className="bg-white pb-28">
         <div className="shell grid gap-16 lg:grid-cols-12">
           <ul className="border-t border-ink/12 lg:col-span-6">
@@ -42,7 +42,7 @@ export default function ContactsPage() {
                       <span className="mt-2 block leading-relaxed text-ink/60">{c.text}</span>
                     </span>
                     <ArrowUpRight className="mt-2 size-5 text-ink/40 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-blue-deep" aria-hidden />
-                    <span className="sr-only"> (откроется в новой вкладке)</span>
+                    <span className="sr-only"> (откроется в новой вкладке)</span>
                   </a>
                 </FadeIn>
               </li>
@@ -59,7 +59,7 @@ export default function ContactsPage() {
           <div className="lg:col-span-5 lg:col-start-8">
             <div className="rounded-[2rem] bg-paper p-7 ring-1 ring-ink/10 sm:p-10">
               <h2 className="display text-[clamp(1.4rem,3vw,2.2rem)] text-ink">Написать нам</h2>
-              <p className="mt-3 leading-relaxed text-ink/60">Соберём письмо за вас, останется только нажать «Отправить» в почте.</p>
+              <p className="mt-3 leading-relaxed text-ink/60">Соберём письмо за вас, останется только нажать «Отправить» в почте.</p>
               <div className="mt-8">
                 <MailComposer />
               </div>

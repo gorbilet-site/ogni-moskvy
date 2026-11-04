@@ -17,21 +17,21 @@ const fanStyle = [
 export function Intro() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative bg-white pb-24 pt-10 sm:pb-36 sm:pt-16" aria-labelledby="intro-title">
-      <div className="shell grid items-center gap-16 lg:grid-cols-12">
+    <section className="relative overflow-hidden bg-white pb-16 pt-10 sm:pb-36 sm:pt-16" aria-labelledby="intro-title">
+      <div className="shell grid items-center gap-8 sm:gap-16 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <RevealTitle id="intro-title" lines={["Самые выгодные", "билеты уже собрали"]} className="display text-[clamp(1.45rem,3.4vw,3rem)] text-ink" />
           <FadeIn delay={0.15}>
-            <p className="mt-8 max-w-lg text-xl leading-[1.45] text-ink/80">
-              Продумайте новогодние каникулы заранее. Мы собрали билеты на экскурсии, спектакли, ёлки и развлечения со скидками.
+            <p className="mt-6 max-w-lg text-lg leading-[1.45] text-ink/80 sm:mt-8 sm:text-xl">
+              Продумайте новогодние каникулы заранее. Мы собрали билеты на экскурсии, спектакли, ёлки и развлечения со скидками.
             </p>
-            <p className="mt-4 max-w-lg text-xl leading-[1.45] text-ink/80">Чтобы на каникулах осталось только наслаждаться каждым днём, а не планировать.</p>
+            <p className="mt-4 max-w-lg text-lg leading-[1.45] text-ink/80 sm:text-xl">Чтобы на каникулах осталось только наслаждаться каждым днём, а не планировать.</p>
           </FadeIn>
 
         </div>
 
-        <div className="relative mx-auto h-[28rem] w-full max-w-md scale-[0.78] sm:scale-100 lg:col-span-5 lg:col-start-8">
-          <div className="absolute inset-0" aria-hidden>
+        <div className="relative mx-auto h-[19rem] w-full max-w-md min-[375px]:h-[21rem] sm:h-[28rem] lg:col-span-5 lg:col-start-8">
+          <div className="absolute left-1/2 top-0 h-[28rem] w-[28rem] origin-top -translate-x-1/2 scale-[0.58] min-[375px]:scale-[0.68] sm:scale-100" aria-hidden>
             {fan.map((slug, i) => {
               const o = getOffer(slug)!;
               const s = fanStyle[i];

@@ -1,13 +1,10 @@
 # Огни Москвы
 
-GitHub: https://github.com/gorbilet-site/ogni-moskvy
+Опубликовано: https://gorbilet-site.github.io/ogni-moskvy/
 
-GitHub Pages: https://gorbilet-site.github.io/ogni-moskvy/
+Исходники: https://github.com/gorbilet-site/ogni-moskvy
 
-Для обновления опубликованного сайта выполните `npm run build:pages`, затем закоммитьте и отправьте изменения вместе с папкой `docs`. GitHub Pages использует `main` → `/docs`.
-
-Общие переходы на московскую афишу размечены `utm_source=vk`, `utm_medium=rassilka_tr`, `utm_campaign=other_msk`, `utm_content=msk` через `site.gorbiletMoscow` в `src/lib/site.ts`.
-Для сборки в Windows при ошибке CSS-обработчика Turbopack можно использовать `npm run build:webpack` с переменной `STATIC_EXPORT=1` для статического экспорта.
+Обновление GitHub Pages: `npm run build:pages`, затем коммит и push папки `docs` вместе с исходниками. `docs` — только генерируемый сайт; заметки и источники сохранены в `project-notes`.
 
 Сайт-сателлит Горбилета к Чёрной пятнице «Чёрная пятница для яркого Нового года». Лид-магнит про новогоднюю Москву: чек-лист, подборки билетов со скидками, навигатор, маршрут на три дня, гид и страницы каждого события.
 
@@ -53,7 +50,28 @@ npm run build:single   # результат ogni-moskvy.html (scripts/build-sing
 
 ### UTM
 
-Все кнопки «Купить билет» ведут на Горбилет с метками `utm_source=ogni_moskvy`, `utm_medium=satellite`, `utm_campaign=black_friday_ny_moscow` и `utm_content=<slug события>`. Меняются в `src/lib/site.ts`.
+Все ссылки на предложения Горбилета размечены:
+
+- `utm_source=vk`
+- `utm_medium=rassilka_tr`
+- `utm_campaign=spektakl_msk` — спектакли;
+- `utm_campaign=avtexcursion_msk` — автобусная и пешеходные экскурсии;
+- `utm_campaign=moscow_newyear_mesta_msk` — ёлки, смотровая «Выше только любовь» и музеи;
+- `utm_content` — последний непустой сегмент исходной ссылки Горбилета, целиком, без завершающего `/`.
+
+`utm_term` не используется. Общие ссылки на афишу Москвы имеют `utm_campaign=other_msk` и `utm_content=msk`. Внутренние якоря и навигация остаются обычными ссылками. Параметры даты/сеанса и фрагмент URL сохраняются. Настройка: `src/lib/site.ts`, категория кампании — поле `campaign` в `src/data/offers.ts`.
+
+Готовые 15 размеченных адресов: `project-notes/tagged-links.json`. Проверка: `npm run check:content`. Типографика: `npm run typograph`.
+
+### Фотографии и маскот
+
+В `public/offers` сохранены 15 изображений со страниц предложений Горбилета. Источники и исходные размеры записаны в `project-notes/photo-sources.json`. Фото отображаются во всех карточках, в навигаторе и на страницах событий. В автономную HTML-сборку они встроены вместе со шрифтами и маскотом; внешних запросов для изображений нет.
+
+Все девять поз кота в `public/mascot` заменены версиями с очищенными краями и прозрачностью. У выглядывающего кота удалена растровая табличка: он располагается поверх синей секции без прямоугольного фона.
+
+### Сборка на Windows
+
+`build:static` и `build:single` запускаются одинаково в PowerShell, cmd и Unix. На Windows эти команды используют Webpack; на остальных платформах — стандартный сборщик Next.js. Tailwind подключён через официальный PostCSS-плагин. Для ручного запуска через Webpack: `npx next dev --webpack`.
 
 ## Страницы
 

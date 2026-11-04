@@ -1,15 +1,15 @@
-import { SINGLE, site } from "@/lib/site";
+import { SINGLE, site, withUtm } from "@/lib/site";
 import { byCategory } from "@/data/offers";
 import { TicketWide } from "@/components/offers/Ticket";
 import { FadeIn, RevealTitle } from "@/components/ui/Reveal";
 import { ButtonLink, Kicker } from "@/components/ui/primitives";
 
-const spans = ["lg:col-span-12", "lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
+const spans = ["lg:col-span-12", "lg:col-span-6", "lg:col-span-6", "lg:col-span-6", "lg:col-span-6"];
 
 export function Guests() {
   const list = byCategory("guests");
   return (
-    <section id="podborka" className="relative bg-paper pb-40 pt-24 sm:pb-48 sm:pt-32" aria-labelledby="guests-title">
+    <section id="podborka" className="relative bg-paper pb-32 pt-16 sm:pb-48 sm:pt-32" aria-labelledby="guests-title">
       <span id="gosti" className="absolute -top-24" aria-hidden />
       <div className="shell">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -22,7 +22,7 @@ export function Guests() {
             />
           </div>
           {SINGLE ? (
-            <ButtonLink href={site.gorbiletMoscow} external variant="outline" className="self-start md:self-auto">
+            <ButtonLink href={withUtm(site.gorbiletMoscow)} external variant="outline" className="self-start md:self-auto">
               Вся афиша Москвы
             </ButtonLink>
           ) : (
@@ -32,7 +32,7 @@ export function Guests() {
           )}
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-12">
+        <div className="mt-8 grid min-w-0 grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-12">
           {list.map((o, i) => (
             <FadeIn key={o.slug} className={spans[i] ?? "lg:col-span-6"} delay={(i % 2) * 0.08}>
               <TicketWide offer={o} featured={i === 0} notch="bg-paper" />

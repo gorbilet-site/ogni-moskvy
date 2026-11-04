@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { CalendarDays, Info, Route, Users } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { OfferIcon } from "@/components/offers/OfferIcon";
-import { BuyLink, PriceBlock, TicketMini } from "@/components/offers/Ticket";
+import { BuyLink, OfferPhoto, PriceBlock, TicketMini } from "@/components/offers/Ticket";
 import { FadeIn } from "@/components/ui/Reveal";
 import { categories, getOffer, offers } from "@/data/offers";
 import { itinerary, situations } from "@/data/guide";
@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: PageProps<"/afisha/[slug]">):
   const { slug } = await params;
   const o = getOffer(slug);
   if (!o) return {};
-  const disc = o.discount ? ` со скидкой ${o.discount}%` : "";
+  const disc = o.discount ? ` со скидкой ${o.discount}%` : "";
   return {
-    title: `${o.title}${disc}. ${o.kind} в Москве`,
-    description: `${o.summary.split(". ")[0]}. Билеты${disc} на новогодние праздники.`,
+    title: `${o.title}${disc}. ${o.kind} в Москве`,
+    description: `${o.summary.split(". ")[0]}. Билеты${disc} на новогодние праздники.`,
     alternates: { canonical: `/afisha/${o.slug}` },
     openGraph: { title: o.title, description: o.accent },
   };
@@ -60,6 +60,9 @@ export default async function OfferPage({ params }: PageProps<"/afisha/[slug]">)
       </PageHero>
 
       <section className="bg-white pb-24">
+        <div className="shell mb-12">
+          <OfferPhoto offer={o} className="aspect-[16/9] max-h-[38rem] rounded-[2rem]" />
+        </div>
         <div className="shell grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <FadeIn>
@@ -82,7 +85,7 @@ export default async function OfferPage({ params }: PageProps<"/afisha/[slug]">)
               {day >= 0 ? (
                 <Link href="/#marshrut" className="group rounded-3xl bg-paper p-6 ring-1 ring-ink/10 transition-colors hover:bg-blush">
                   <Route className="size-5 text-blue-deep" aria-hidden />
-                  <h2 className="mt-4 font-semibold text-ink">В маршруте на три дня</h2>
+                  <h2 className="mt-4 font-semibold text-ink">В маршруте на три дня</h2>
                   <p className="mt-2 leading-relaxed text-ink/65">
                     День {day + 1}, «{itinerary[day].title}». {itinerary[day].mood}.
                   </p>
@@ -90,8 +93,8 @@ export default async function OfferPage({ params }: PageProps<"/afisha/[slug]">)
               ) : (
                 <div className="rounded-3xl bg-paper p-6 ring-1 ring-ink/10">
                   <CalendarDays className="size-5 text-blue-deep" aria-hidden />
-                  <h2 className="mt-4 font-semibold text-ink">Даты и сеансы</h2>
-                  <p className="mt-2 leading-relaxed text-ink/65">Расписание на каникулы смотрите на странице билета. Популярные даты лучше брать заранее.</p>
+                  <h2 className="mt-4 font-semibold text-ink">Даты и сеансы</h2>
+                  <p className="mt-2 leading-relaxed text-ink/65">Расписание на каникулы смотрите на странице билета. Популярные даты лучше брать заранее.</p>
                 </div>
               )}
             </div>
@@ -104,7 +107,7 @@ export default async function OfferPage({ params }: PageProps<"/afisha/[slug]">)
 
             {mentioned.length > 0 && (
               <div className="mt-14">
-                <h2 className="display text-[clamp(1.25rem,2.4vw,1.7rem)] text-ink">Читайте в гиде</h2>
+                <h2 className="display text-[clamp(1.25rem,2.4vw,1.7rem)] text-ink">Читайте в гиде</h2>
                 <ul className="mt-5 grid gap-2">
                   {mentioned.map((a) => (
                     <li key={a.slug}>
@@ -121,7 +124,7 @@ export default async function OfferPage({ params }: PageProps<"/afisha/[slug]">)
           <aside className="lg:col-span-4 lg:col-start-9" aria-label="Покупка билета">
             <div className="lg:sticky lg:top-28">
               <div className="relative overflow-hidden rounded-[2rem] bg-blue p-7 text-ink">
-                <p className="text-[1.1875rem] font-bold">Билет на Горбилете</p>
+                <p className="text-[1.1875rem] font-bold">Билет на Горбилете</p>
                 <p className="display mt-3 text-[1.45rem] leading-[1.2]">{o.title}</p>
                 <div aria-hidden className="relative -mx-7 my-7 h-6">
                   <span className="absolute -left-3 top-1/2 size-6 -translate-y-1/2 rounded-full bg-white" />
@@ -132,7 +135,7 @@ export default async function OfferPage({ params }: PageProps<"/afisha/[slug]">)
                 <BuyLink offer={o} className="mt-7 w-full justify-center" />
                 <p className="mt-6 flex gap-2 border-t border-ink/25 pt-5 text-[1.1875rem] font-bold leading-[1.3]">
                   <Info className="mt-1 size-5 shrink-0" aria-hidden />
-                  Дату и места выбираете на Горбилете. Там же актуальная цена.
+                  Дату и места выбираете на Горбилете. Там же актуальная цена.
                 </p>
               </div>
             </div>

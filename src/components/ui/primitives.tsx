@@ -29,7 +29,7 @@ type BtnProps = {
 
 /* Кнопки набраны крупным жирным Inter (19px bold). Текст на синем чёрный */
 const base =
-  "group relative inline-flex min-h-14 items-center justify-center gap-2.5 overflow-hidden rounded-full px-7 text-[1.1875rem] font-bold leading-none transition-[transform,background-color,color,box-shadow,border-color] duration-500 ease-out-expo active:scale-[0.97]";
+  "group relative inline-flex min-h-13 max-w-full items-center justify-center gap-2.5 overflow-hidden rounded-full px-5 py-3 text-base font-bold leading-[1.25] transition-[transform,background-color,color,box-shadow,border-color] duration-500 ease-out-expo active:scale-[0.97] sm:min-h-14 sm:px-7 sm:text-[1.1875rem]";
 
 const styles: Record<Variant, string> = {
   primary: "bg-blue text-ink hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgb(59_139_235/0.7)]",
@@ -53,8 +53,8 @@ export function ButtonLink({ href, children, variant = "primary", external, clas
           )}
         />
       )}
-      <span className="relative">{children}</span>
-      <span className="relative transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+      <span className="relative min-w-0">{children}</span>
+      <span className="relative shrink-0 transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
         {icon ?? <ArrowUpRight className="size-5" strokeWidth={2.4} />}
       </span>
     </>
@@ -63,7 +63,7 @@ export function ButtonLink({ href, children, variant = "primary", external, clas
     return (
       <a href={href} target="_blank" rel="noopener" className={cn(base, styles[variant], className)} {...rest}>
         {content}
-        <span className="sr-only"> (откроется в новой вкладке)</span>
+        <span className="sr-only"> (откроется в новой вкладке)</span>
       </a>
     );
   }

@@ -48,7 +48,7 @@ export function AfishaBrowser() {
     <>
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <LayoutGroup>
-          <div role="group" aria-label="Фильтр по категориям" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+          <div role="group" aria-label="Фильтр по категориям" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:px-0">
             {keys.map((k) => {
               const on = k === filter;
               return (

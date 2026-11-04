@@ -23,7 +23,7 @@ const druk = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Новогодняя Москва со скидками. Чёрная пятница для яркого Нового года",
+    default: "Новогодняя Москва со скидками. Чёрная пятница для яркого Нового года",
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   keywords: [
     "новогодняя Москва",
     "чёрная пятница билеты",
-    "куда сходить в Москве на новогодние каникулы",
+    "куда сходить в Москве на новогодние каникулы",
     "новогодние ёлки Москва 2027",
-    "экскурсии по Москве зимой",
+    "экскурсии по Москве зимой",
     "смотровые площадки Москвы",
     "спектакли Москва скидки",
   ],
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     siteName: site.name,
-    title: "Едем в Москву на праздники",
-    description: "Что посмотреть, куда сходить и какие билеты купить со скидкой в Чёрную пятницу.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Новогодняя Москва от Горбилета, силуэт Кремля под гирляндой" }],
+    title: "Едем в Москву на праздники",
+    description: "Что посмотреть, куда сходить и какие билеты купить со скидкой в Чёрную пятницу.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Новогодняя Москва от Горбилета, силуэт Кремля под гирляндой" }],
   },
   twitter: { card: "summary_large_image" },
   icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg` },
@@ -65,7 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="#main"
           className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-full bg-ink px-5 py-3 font-semibold text-white transition-transform focus:translate-y-0"
         >
-          Перейти к содержанию
+          Перейти к содержанию
         </a>
         <Providers>
           <Header />

@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: PageProps<"/gid/[slug]">) 
         </div>
 
         <div className="shell mt-24">
-          <h2 className="display text-[clamp(1.4rem,3vw,2.2rem)] text-ink">Ещё в гиде</h2>
+          <h2 className="display text-[clamp(1.4rem,3vw,2.2rem)] text-ink">Ещё в гиде</h2>
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {others.map((x) => (
               <li key={x.slug}>

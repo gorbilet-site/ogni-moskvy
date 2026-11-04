@@ -7,8 +7,8 @@ import { articles } from "@/data/articles";
 import { cn } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
-  title: "Гид по новогодней Москве",
-  description: "Маршрут на три дня, как выбрать ёлку для ребёнка и где посмотреть на Москву с высоты зимой. Практичные советы для поездки на каникулы.",
+  title: "Гид по новогодней Москве",
+  description: "Маршрут на три дня, как выбрать ёлку для ребёнка и где посмотреть на Москву с высоты зимой. Практичные советы для поездки на каникулы.",
   alternates: { canonical: "/gid" },
 };
 
@@ -21,7 +21,7 @@ const tones = {
 export default function GuidePage() {
   return (
     <>
-      <PageHero mascot="sit" title={["Гид по новогодней", "Москве"]} lead="Короткие практичные тексты, которые помогут спланировать каникулы и не потратить их на планирование." />
+      <PageHero mascot="sit" title={["Гид по новогодней", "Москве"]} lead="Короткие практичные тексты, которые помогут спланировать каникулы и не потратить их на планирование." />
       <section className="bg-white pb-28">
         <ul className="shell grid gap-5 lg:grid-cols-3">
           {articles.map((a, i) => (

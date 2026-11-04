@@ -12,23 +12,6 @@ const nextConfig: NextConfig = {
   // Сайт полностью статический, поэтому Cache Components не включаем
   ...(isExport ? { output: "export" as const, trailingSlash: true } : {}),
   poweredByHeader: false,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
-  // Optional fallback for Windows environments where the Turbopack CSS worker exits early.
-  webpack(config) {
-    config.module.rules.unshift({
-      test: /globals\.css$/,
-      enforce: "pre",
-      use: ["@tailwindcss/turbopack"],
-    });
-    return config;
-  },
 };
 
 export default nextConfig;

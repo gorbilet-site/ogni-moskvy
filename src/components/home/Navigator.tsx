@@ -37,11 +37,11 @@ export function Navigator() {
   };
 
   return (
-    <section className="relative bg-blue py-24 text-ink sm:py-32" aria-labelledby="nav-title">
-      {/* Кот выглядывает из-за края синей секции: его табличка сливается с фоном */}
+    <section className="relative bg-blue py-16 text-ink sm:py-32" aria-labelledby="nav-title">
+      {/* Прозрачный маскот выглядывает из-за края секции, без растровой таблички. */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute left-[6%] top-0 z-10 w-44 -translate-y-[68%] sm:left-[10%] sm:w-60"
+        className="pointer-events-none absolute left-[6%] top-3 z-10 w-32 -translate-y-[84%] sm:left-[10%] sm:w-60"
         initial={reduce ? false : { y: 60 }}
         whileInView={{ y: 0 }}
         viewport={{ once: true, margin: "-10% 0px" }}
@@ -50,10 +50,10 @@ export function Navigator() {
         <Mascot pose="peek" className="w-full" />
       </motion.div>
 
-      <div className="shell relative grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <RevealTitle id="nav-title" lines={["Что выбрать", "для своей поездки?"]} className="display text-[clamp(1.45rem,2.9vw,2.6rem)]" />
-          <p className="mt-6 max-w-sm text-xl font-bold leading-[1.3]">Выберите, с кем и зачем едете. Подскажем, с чего начать.</p>
+      <div className="shell relative grid gap-8 sm:gap-12 lg:grid-cols-12">
+        <div className="min-w-0 lg:col-span-5">
+          <RevealTitle id="nav-title" lines={["Что выбрать", "для своей поездки?"]} className="display text-[clamp(1.45rem,2.9vw,2.6rem)]" />
+          <p className="mt-6 max-w-sm text-xl font-bold leading-[1.3]">Выберите, с кем и зачем едете. Подскажем, с чего начать.</p>
 
           <div role="tablist" aria-orientation="vertical" aria-label="Ситуации" className="mt-10 grid gap-1.5" onKeyDown={onKey}>
             {situations.map((it, i) => {
@@ -72,7 +72,7 @@ export function Navigator() {
                   tabIndex={on ? 0 : -1}
                   onClick={() => setActive(i)}
                   className={cn(
-                    "relative flex min-h-14 items-center gap-4 rounded-2xl px-5 text-left text-[1.1875rem] font-bold transition-colors duration-300",
+                    "relative flex min-h-14 items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-bold transition-colors duration-300 sm:gap-4 sm:px-5 sm:text-[1.1875rem]",
                     on ? "text-ink" : "text-ink hover:bg-white/25",
                   )}
                 >
@@ -85,8 +85,8 @@ export function Navigator() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 lg:col-start-7">
-          <div id="nav-panel" role="tabpanel" aria-labelledby={`tab-${s.id}`} className="relative min-h-[26rem] overflow-hidden rounded-[2rem] bg-white p-7 text-ink sm:p-10">
+        <div className="min-w-0 lg:col-span-6 lg:col-start-7">
+          <div id="nav-panel" role="tabpanel" aria-labelledby={`tab-${s.id}`} className="relative overflow-hidden rounded-[2rem] bg-white p-5 text-ink sm:min-h-[26rem] sm:p-10">
             <AnimatePresence mode="wait">
               <motion.div
                 key={s.id}
@@ -96,8 +96,8 @@ export function Navigator() {
                 transition={{ duration: 0.55, ease }}
                 className="flex h-full flex-col"
               >
-                <p className="text-[0.95rem] font-semibold text-blue-deep">{s.label}. Начните с этого</p>
-                <h3 className="display mt-6 text-[clamp(1.4rem,2.8vw,2.3rem)] text-ink">{main.title}</h3>
+                <p className="text-[0.95rem] font-semibold text-blue-deep">{s.label}. Начните с этого</p>
+                <h3 className="mt-5 text-2xl font-bold leading-[1.2] text-ink sm:font-display sm:text-[clamp(1.4rem,2.8vw,2.3rem)] sm:font-medium">{main.title}</h3>
                 <p className="mt-5 max-w-md text-lg leading-[1.45] text-ink/75">{s.note}</p>
                 <div className="mt-8 grid gap-3">
                   {s.offers.map((slug) => (
@@ -105,7 +105,7 @@ export function Navigator() {
                   ))}
                 </div>
                 <div className="mt-8">
-                  <BuyLink offer={main} tone="light" />
+                  <BuyLink offer={main} tone="light" className="w-full sm:w-auto" />
                 </div>
               </motion.div>
             </AnimatePresence>

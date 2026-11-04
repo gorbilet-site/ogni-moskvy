@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "hram-hrista-spasitelya-smotrovye",
+    "page": "https://gorbilet.ru/msk/actions/peshehodnaja-ekskursija-hram-hrista-spasitelja-4-smotrovye-ploschadki/",
+    "image": "https://media.gorbilet.ru/d1/bc/04/shutterstock_1195707733_QqKgjNI.jpg",
+    "file": "public/offers/hram-hrista-spasitelya-smotrovye.webp",
+    "originalWidth": 6480,
+    "originalHeight": 4152,
+    "checkedAt": "2026-10-30",
+    "title": "Экскурсия в Храм Христа Спасителя + 4 смотровые площадки",
+    "status": "active"
+  },
+  {
+    "slug": "mechty-menyayushchie-mir",
+    "page": "https://gorbilet.ru/msk/actions/interaktivnoe-shou-mechty-menjajuschie-mir-novye-istorii/",
+    "image": "https://media.gorbilet.ru/f7/fc/aa/%D0%9C%D0%B0%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%82%D1%80%D1%83%D0%BF%D0%BF%D0%B0_%D0%B2_%D0%B4%D1%8B%D0%BC%D0%BA%D0%B5.png",
+    "file": "public/offers/mechty-menyayushchie-mir.webp",
+    "originalWidth": 1816,
+    "originalHeight": 866,
+    "checkedAt": "2026-10-30",
+    "title": "Интерактивное шоу «Мечты Меняющие Мир: Новые истории» со скидкой 25%",
+    "status": "active"
+  },
+  {
+    "slug": "muzej-magii",
+    "page": "https://gorbilet.ru/msk/actions/muzej-magii-so-skidkoj-20/",
+    "image": "https://media.gorbilet.ru/d5/1f/98/ChatGPT_Image_16_%D1%81%D0%B5%D0%BD%D1%82._2026_%D0%B3._11_37_28.png",
+    "file": "public/offers/muzej-magii.webp",
+    "originalWidth": 1448,
+    "originalHeight": 1086,
+    "checkedAt": "2026-10-30",
+    "title": "Музей Магии со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "novogodnyaya-moskva",
+    "page": "https://gorbilet.ru/msk/actions/avtobusnaja-ekskursija-novogodnjaja-moskva/",
+    "image": "https://media.gorbilet.ru/8e/76/e5/shutterstock_1284302431_9DnDr6p.jpg",
+    "file": "public/offers/novogodnyaya-moskva.webp",
+    "originalWidth": 5113,
+    "originalHeight": 3409,
+    "checkedAt": "2026-10-30",
+    "title": "Автобусная экскурсия «Новогодняя Москва»",
+    "status": "active"
+  },
+  {
+    "slug": "novogodnyaya-skazka-v-gorode",
+    "page": "https://gorbilet.ru/msk/actions/peshehodnaja-ekskursija-novogodnjaja-skazka-v-gorode/",
+    "image": "https://media.gorbilet.ru/21/68/fa/Photogenica-PHX420687070_lGdugi2.jpg",
+    "file": "public/offers/novogodnyaya-skazka-v-gorode.webp",
+    "originalWidth": 7191,
+    "originalHeight": 4799,
+    "checkedAt": "2026-10-30",
+    "title": "Пешеходная экскурсия «Новогодняя сказка в городе» со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "novyj-god-v-lukomore",
+    "page": "https://gorbilet.ru/msk/actions/prazdnichnoe-shou-novyj-god-v-lukomore/",
+    "image": "https://media.gorbilet.ru/89/a6/d8/%D0%A1%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D0%B5_%D0%BE_%D0%B7%D0%B0%D1%87%D0%B0%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%BC_%D0%B4%D1%80%D0%B5%D0%B2%D0%B5.png",
+    "file": "public/offers/novyj-god-v-lukomore.webp",
+    "originalWidth": 1672,
+    "originalHeight": 941,
+    "checkedAt": "2026-10-30",
+    "title": "Интерактивное шоу «Новый год в Лукоморье» со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "poslednij-stendap-millionera",
+    "page": "https://gorbilet.ru/msk/actions/spektakl-poslednij-stendap-millionera/",
+    "image": "https://media.gorbilet.ru/37/02/40/%D0%9F%D0%A1%D0%9C_2200%D1%851250_qqV6vgA.jpg",
+    "file": "public/offers/poslednij-stendap-millionera.webp",
+    "originalWidth": 2200,
+    "originalHeight": 1250,
+    "checkedAt": "2026-10-30",
+    "title": "Спектакль «Последний стендап миллионера» со скидкой 30%",
+    "status": "active"
+  },
+  {
+    "slug": "rekordium",
+    "page": "https://gorbilet.ru/msk/actions/muzej-rekordium-so-skidkoj-20/",
+    "image": "https://media.gorbilet.ru/ad/1c/79/ChatGPT_Image_17_%D1%81%D0%B5%D0%BD%D1%82._2026_%D0%B3._12_42_41.png",
+    "file": "public/offers/rekordium.webp",
+    "originalWidth": 2222,
+    "originalHeight": 708,
+    "checkedAt": "2026-10-30",
+    "title": "Музей «Рекордиум» со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "salon-krasoty",
+    "page": "https://gorbilet.ru/msk/actions/spektakl-salon-krasoty-ili-o-chem-govorjat-zhenschiny-s-natalej-bochkarevoj-so-skidkoj-30/",
+    "image": "https://media.gorbilet.ru/68/e8/a3/%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD_upscaled_3500px.jpg",
+    "file": "public/offers/salon-krasoty.webp",
+    "originalWidth": 3500,
+    "originalHeight": 2334,
+    "checkedAt": "2026-10-30",
+    "title": "Спектакль «Салон красоты, или О чём говорят женщины» со скидкой 30%",
+    "status": "active"
+  },
+  {
+    "slug": "shou-pod-dozhdem",
+    "page": "https://gorbilet.ru/msk/actions/spektakl-shou-pod-dozhdem-sezon-dozhdej-so-skidkoj-30/",
+    "image": "https://media.gorbilet.ru/90/3e/e0/19.3000_2000_%D0%93%D0%9E%D0%A0%D0%91%D0%98%D0%9B%D0%95%D0%A2_%D1%81%D0%B5%D0%B7%D0%BE%D0%BD_%D0%B4%D0%BE%D0%B6%D0%B4%D0%B5%D0%B9.jpg",
+    "file": "public/offers/shou-pod-dozhdem.webp",
+    "originalWidth": 3000,
+    "originalHeight": 2000,
+    "checkedAt": "2026-10-30",
+    "title": "Иммерсивный спектакль-шоу «Сезон дождей» со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "tri-kota-novyj-god",
+    "page": "https://gorbilet.ru/msk/actions/interaktivnoe-shou-tri-kota-miu-miu-novyj-god/",
+    "image": "https://media.gorbilet.ru/3d/78/4e/960x690_noncrop_34_fhny29G.webp",
+    "file": "public/offers/tri-kota-novyj-god.webp",
+    "originalWidth": 960,
+    "originalHeight": 540,
+    "checkedAt": "2026-10-30",
+    "title": "Интерактивное шоу «Три Кота: Миу-Миу Новый год» со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "tsar-maket",
+    "page": "https://gorbilet.ru/msk/actions/muzej-diorama-tsar-maket/",
+    "image": "https://media.gorbilet.ru/cc/fc/41/IMG_20250715_145811_068.jpg",
+    "file": "public/offers/tsar-maket.webp",
+    "originalWidth": 1280,
+    "originalHeight": 960,
+    "checkedAt": "2026-10-30",
+    "title": "Музей-диорама «Царь-макет»",
+    "status": "active"
+  },
+  {
+    "slug": "tsirk-deda-moroza",
+    "page": "https://gorbilet.ru/msk/actions/teatralnoe-novogodnee-tsirk-deda-moroza-liga-zimnih-volshebnikov/",
+    "image": "https://media.gorbilet.ru/cf/08/e8/%D1%86%D0%B8%D1%80%D0%BA_%D0%94%D0%9C.png",
+    "file": "public/offers/tsirk-deda-moroza.webp",
+    "originalWidth": 1000,
+    "originalHeight": 667,
+    "checkedAt": "2026-10-30",
+    "title": "Театральное новогоднее шоу «Цирк Деда Мороза: Лига Зимних Волшебников»  со скидкой 20%",
+    "status": "active"
+  },
+  {
+    "slug": "vitalya",
+    "page": "https://gorbilet.ru/msk/actions/spektakl-vitalja-s-maratom-basharovym-i-natalej-bochkarevoj/",
+    "image": "https://media.gorbilet.ru/ca/10/87/2200%D1%851250_%D0%B2%D0%B8%D1%82%D0%B0%D0%BB%D1%8F.png",
+    "file": "public/offers/vitalya.webp",
+    "originalWidth": 2200,
+    "originalHeight": 1250,
+    "checkedAt": "2026-10-30",
+    "title": "Спектакль «Виталя» с Маратом Башаровым и Натальей Бочкарёвой со скидкой 30%",
+    "status": "active"
+  },
+  {
+    "slug": "vyshe-tolko-lyubov",
+    "page": "https://gorbilet.ru/msk/actions/poseschenie-smotrovoj-ploschadki-vyshetolkoljubov-s-komplimentom/",
+    "image": "https://media.gorbilet.ru/f6/e3/81/ChatGPT_Image_24_%D0%B0%D0%B2%D0%B3._2026_%D0%B3._12_24_04.png",
+    "file": "public/offers/vyshe-tolko-lyubov.webp",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "checkedAt": "2026-10-30",
+    "title": "Смотровая площадка Москва-сити «Выше только любовь» со скидкой 30%",
+    "status": "active"
+  }
+]

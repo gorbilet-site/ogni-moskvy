@@ -25,7 +25,7 @@ export function RevealTitle({
   const Tag = motion[as];
   const trigger = animateOnMount ? { animate: "show" } : { whileInView: "show", viewport: { once: true, margin: "-12% 0px" } };
   return (
-    <Tag id={id} className={className} initial={reduce ? false : "hide"} {...trigger}>
+    <Tag id={id} className={`${as === "h1" ? "" : "max-sm:text-[clamp(1.2rem,5.8vw,1.45rem)]"} min-w-0 ${className ?? ""}`} initial={reduce ? false : "hide"} {...trigger}>
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden pb-[0.08em]">
           <motion.span
@@ -58,7 +58,7 @@ export function FadeIn({
   const reduce = useReducedMotion();
   return (
     <motion.div
-      className={className}
+      className={`min-w-0 ${className ?? ""}`}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8% 0px" }}

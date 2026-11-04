@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
-import { cpSync, mkdirSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { cpSync, existsSync, lstatSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { resolve, relative } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const env = {
@@ -12,6 +12,8 @@ const env = {
 };
 execFileSync(process.execPath, [resolve(root, "node_modules/next/dist/bin/next"), "build", "--webpack"], { cwd: root, env, stdio: "inherit" });
 const docs = resolve(root, "docs");
+if (relative(root, docs) !== "docs" || (existsSync(docs) && lstatSync(docs).isSymbolicLink())) throw new Error("Unsafe Pages output path");
+rmSync(docs, { recursive: true, force: true });
 mkdirSync(docs, { recursive: true });
 cpSync(resolve(root, "out"), docs, { recursive: true });
 writeFileSync(resolve(docs, ".nojekyll"), "");

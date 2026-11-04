@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { SINGLE, nav, site } from "@/lib/site";
+import { SINGLE, nav, site, withUtm } from "@/lib/site";
 import { LogoFull } from "@/components/brand/Logo";
 import { AppLink, cn } from "@/components/ui/primitives";
 
@@ -18,26 +18,32 @@ export function Header() {
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 24));
 
   useEffect(() => {
-    document.documentElement.style.overflow = open ? "hidden" : "";
+    const previousOverflow = document.documentElement.style.overflow;
+    if (open) document.documentElement.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      document.documentElement.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
   }, [open]);
 
   const isActive = (href: string) => !href.startsWith("/#") && pathname.startsWith(href);
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-[max(0.5rem,env(safe-area-inset-top))] sm:px-5 sm:pt-4">
         <div
           className={cn(
-            "mx-auto flex h-16 max-w-[88rem] items-center justify-between gap-4 rounded-full bg-white pl-5 pr-2 transition-shadow duration-500 sm:pl-6",
+            "mx-auto flex h-14 max-w-[88rem] items-center justify-between gap-4 rounded-full bg-white pl-1.5 pr-1.5 transition-shadow duration-500 sm:h-16 sm:pl-2 sm:pr-2",
             scrolled || open ? "shadow-[0_12px_40px_-16px_rgb(17_19_24/0.35)]" : "shadow-[0_1px_0_rgb(17_19_24/0.04)]",
           )}
         >
-          <AppLink href={SINGLE ? "#main" : "/"} className="group flex items-center gap-4" aria-label={`${site.name} от Горбилета, на главную`}>
+          <AppLink href={SINGLE ? "#main" : "/"} className="group flex items-center gap-4" aria-label={`${site.name} от Горбилета, на главную`}>
             {/* Охранное поле логотипа X/3 обеспечено отступом до подписи */}
-            <LogoFull className="h-[1.35rem] w-auto text-ink sm:h-6" title="Горбилет" />
+            <span className="rounded-full bg-blue px-4 py-3 sm:px-5">
+              <LogoFull className="h-[1.35rem] w-auto text-white sm:h-6" title="Горбилет" />
+            </span>
             <span aria-hidden className="hidden h-6 w-px bg-ink/15 sm:block" />
             <span className="hidden text-[0.95rem] font-semibold text-ink sm:block">{site.name}</span>
           </AppLink>
@@ -66,14 +72,14 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <a
-              href={site.gorbiletMoscow}
+              href={withUtm(site.gorbiletMoscow)}
               target="_blank"
               rel="noopener"
               className="hidden min-h-12 items-center gap-2 rounded-full bg-blue px-5 text-[1.1875rem] font-bold text-ink transition-shadow duration-500 hover:shadow-[0_10px_30px_-8px_rgb(59_139_235/0.7)] sm:inline-flex"
             >
               Все билеты
               <ArrowUpRight className="size-5" strokeWidth={2.4} />
-              <span className="sr-only"> на Горбилете (откроется в новой вкладке)</span>
+              <span className="sr-only"> на Горбилете (откроется в новой вкладке)</span>
             </a>
             <button
               type="button"
@@ -81,7 +87,7 @@ export function Header() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Закрыть меню" : "Открыть меню"}
-              className="grid size-12 place-items-center rounded-full bg-blush text-ink transition-colors hover:bg-blue xl:hidden"
+              className="grid size-11 place-items-center rounded-full bg-blush text-ink transition-colors hover:bg-blue sm:size-12 xl:hidden"
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
@@ -103,7 +109,7 @@ export function Header() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="blue-sky fixed inset-0 z-40 flex flex-col overflow-y-auto px-6 pb-10 pt-28 xl:hidden"
+            className="blue-sky fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-24 sm:px-6 sm:pt-28 xl:hidden"
             initial={{ clipPath: "circle(0% at 100% 0%)" }}
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
@@ -121,26 +127,26 @@ export function Header() {
                     <AppLink
                       href={n.href}
                       onClick={() => setOpen(false)}
-                      className="display flex items-center justify-between border-b border-ink/20 py-4 text-[1.6rem] text-ink sm:text-4xl"
+                      className="display flex items-center justify-between gap-3 border-b border-ink/20 py-4 text-[1.3rem] text-ink sm:text-4xl"
                     >
                       {n.label}
-                      <ArrowUpRight className="size-6 text-ink/60" aria-hidden />
+                      <ArrowUpRight className="size-6 shrink-0 text-ink/60" aria-hidden />
                     </AppLink>
                   </motion.li>
                 ))}
               </ul>
             </nav>
             <motion.a
-              href={site.gorbiletMoscow}
+              href={withUtm(site.gorbiletMoscow)}
               target="_blank"
               rel="noopener"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.55 }}
-              className="mt-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-white text-[1.1875rem] font-bold text-ink"
+              className="mt-8 inline-flex min-h-14 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-base font-bold leading-[1.3] text-ink sm:text-[1.1875rem]"
             >
-              Все билеты Москвы на Горбилете
-              <ArrowUpRight className="size-5" />
+              Все билеты Москвы на Горбилете
+              <ArrowUpRight className="size-5 shrink-0" />
             </motion.a>
           </motion.div>
         )}
